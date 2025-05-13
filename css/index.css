@@ -182,7 +182,7 @@ padding-right: 1rem;
     display: flex;
     position: relative;
     background: var(--secondary-color);
-    height: 50vh;
+    height: 40vh;
 }
 
 .kort-head h2{
@@ -200,18 +200,73 @@ padding-right: 1rem;
 /* Styling af kort og parallax */
 .kort-lax{
     background: var(--secondary-color);
-    height: 50vh;
+    height: 80vh;
+    z-index: -10;
+    position: relative;
+    padding-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cards{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    transform: translateY(-100px);
 }
 
 .circle-bg{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+}
+
+.circle-bg h3{
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.circle-bg p{
+    width: 80%;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.circle-bg a{
+    background: var(--secondary-color);
+    border-radius: 30px;
+    padding: 2rem;
+    width: 200px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.circle-bg a img{
+   padding-right: 0.5rem;
+   width: 24px;
 }
 
 .circle-img{
+    bottom: -130px;
     position: absolute;
-    bottom: 0;
-    right: 50;
-    
+    left: 0;
+    width: 100%;
+    z-index: -5;
+}
+
+.cards .card1{
+    rotate: -15deg;  
+    transform: translateY(20px);
+}
+
+.cards .card3{
+    rotate: 15deg;
+    transform: translateY(20px);  
+    z-index: -4; 
 }
