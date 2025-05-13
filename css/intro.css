@@ -29,7 +29,7 @@ body {
 /* Header-styling */
 header {
     text-align: center;
-    padding: 2rem 1rem 1rem;
+    padding: 5rem 1rem 1rem;
   }
   
   header h1 {
@@ -42,11 +42,10 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* <-- CENTRER lodret */
-    padding: 1rem;
+    justify-content: center; 
+    padding: 4rem;
     max-width: 900px;
     margin: 0 auto;
-    min-height: 100vh; /* <-- Fylder hele skærmens højde */
   }
   
   /* Section layout */
@@ -57,7 +56,7 @@ header {
     text-align: center;
     flex-direction: row;
     text-align: left;
-    gap: 2rem;
+    gap: 5rem;
     font-size: 1.8rem;
   }
   
@@ -68,7 +67,7 @@ header {
   
   figure img {
     width: 100%;
-    max-width: 250px;
+    max-width: 20rem;
     border-radius: 20px;
   }
   
@@ -88,7 +87,7 @@ header {
     font-weight: bold;
     border: none;
     padding: 1rem 2rem;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     border-radius: 15px;
     cursor: pointer;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
