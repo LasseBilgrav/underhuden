@@ -9,6 +9,7 @@ body h1, h2, h3{
 
 body{
     color: var(--tetriary-color);
+    line-height: 1.6;
 }
 
 body p, a{
@@ -24,6 +25,10 @@ body a{
 
 h1{
     font-size: 4rem;
+}
+
+h2{
+    font-size: 2.5rem;
 }
 
 :root{
@@ -116,13 +121,67 @@ padding-right: 1rem;
 /* Styling af kort fakta afsnit */
 .fakta-sek{
     background: linear-gradient(180deg, #A52E45 0%, #B65E6F 50.96%, #A07D90 78.37%, #2B5278 100%);
-    height: 20rem;
+    height: 14rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     padding: 3rem;
     justify-items:center;
 }
 
+.fakta-sek aside{
+    width: 80%;
+    height: 50%;
+    justify-content: center;
+}
+
+.fakta-sek aside h3{
+    font-size: 1.5rem;
+}
+
 .txt-to{
     align-self: flex-end;
+}
+
+/* styling af infografik sektion */
+.infographic-sek{
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--primary-color);
+    justify-items: center;
+    gap: 2rem;
+}
+
+.grafik-article{
+    width: 80%;
+}
+
+.grafik-article h2{
+    padding-bottom: 2rem;
+}
+
+.grafik-article p{
+    padding-bottom: 4rem;
+}
+
+
+
+.infographic-sek img{
+    width: 70%;
+}
+
+
+/* Styling af sektion med kort */
+.kort-sek{
+    background: var(--secondary-color);
+    padding: 3rem;
+}
+
+.kort-head{
+    display: flex;
+}
+
+.kort-head img{
+    right: 0;
+    position: absolute;
 }
