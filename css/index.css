@@ -11,8 +11,15 @@ body{
     color: var(--tetriary-color);
 }
 
-body p{
+body p, a{
     font-family: var(--primary-font);
+}
+
+body a{
+    text-decoration: none;
+    color: var(--tetriary-color);
+    font-family: var(--secondary-font);
+    font-weight: 600;
 }
 
 h1{
@@ -63,13 +70,59 @@ padding-right: 1rem;
     padding-top: 4rem;
 }
 
+
 /* Styling af interaktiv historie */ 
 .historie-sektion{
     display: flex;
+    position: relative;
     flex-direction: column;
+    background-image: url(/images/story-img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 25rem;
+    padding: 3rem;
 }
 
 .historie-sektion article{
     display: flex;
     flex-direction: column;
+    width: 60%;
+    margin-bottom: 3rem;
+}
+
+.historie-sektion article span{
+    font-style: italic;
+}
+
+.historie-sektion article h2{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    width: 75%;
+}
+
+.historie-sektion a{
+    background-color: var(--tetriary-color);
+    color: #A52E45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 70px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.80));
+}
+
+/* Styling af kort fakta afsnit */
+.fakta-sek{
+    background: linear-gradient(180deg, #A52E45 0%, #B65E6F 50.96%, #A07D90 78.37%, #2B5278 100%);
+    height: 20rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3rem;
+    justify-items:center;
+}
+
+.txt-to{
+    align-self: flex-end;
 }
