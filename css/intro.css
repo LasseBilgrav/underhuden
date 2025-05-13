@@ -7,15 +7,23 @@
    --primary-color:#2B5278; 
    --secondary-color:#A52E45;
    --tetriary-color:#EAD8B1;
-   --primary-font:
+   --primary-font:'Poppins', sans-serif;
+   --secondary-font:'Inter', sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
+body {   
     background-color: #A52E45;
     color: #EAD8B1;
     margin: 0;
     padding: 0;
+  }
+
+  body h1, h2, h3 {   
+  font-family: var(--secondary-font); 
+  }
+
+  body p {   
+    font-family: var(--primary-font);
   }
 
 /* Header-styling */
