@@ -174,14 +174,21 @@ padding-right: 1rem;
 /* Styling af sektion med kort */
 .kort-sek{
     background: var(--secondary-color);
-    padding: 3rem;
+    padding: 3rem 0rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .kort-head{
     display: flex;
+    position: relative;
+    background: var(--secondary-color);
 }
 
 .kort-head img{
-    right: 0;
     position: absolute;
+  right: -10px; /* move it partially offscreen */
+
+  height: auto;
+
 }
