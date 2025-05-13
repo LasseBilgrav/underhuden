@@ -1,9 +1,17 @@
+:root{
+    --primary-color:#2B5278; 
+    --secondary-color:#A52E45;
+    --tetriary-color:#EAD8B1;
+    --primary-font:'Poppins', sans-serif;
+    --secondary-font:'Inter', sans-serif;
+ }
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #A52E45;
-    color: #EAD8B1;
+    font-family: var(--primary-font);
+    background-color: var(--secondary-color);
+    color: var(--tetriary-color);
     position: relative;
     overflow-x: hidden;
     width: 100%;
@@ -34,6 +42,7 @@ body {
   h1 {
     font-size: 28px;
     margin-bottom: 10px;
+    font-family: var(--secondary-font);
   }
   
   .intro-text {
@@ -51,12 +60,12 @@ body {
   }
   
   .card {
-    background-color: #EAD8B1;
+    background-color: var(--tetriary-color);
     border-radius: 20px;
     padding: 20px;
     width: 220px;
     box-shadow: 6px 6px 0 #000;
-    color: #A52E45;
+    color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +84,7 @@ body {
   }
   
   .fold-ud {
-    background-color: #A52E45;
+    background-color: var(--secondary-color);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -93,8 +102,8 @@ body {
   }
   
   .main-button {
-    background-color: #EAD8B1;
-    color: #A52E45;
+    background-color: var(--tetriary-color);
+    color: var(--secondary-color);
     padding: 20px 30px;
     border-radius: 15px;
     text-decoration: none;
@@ -103,9 +112,6 @@ body {
     box-shadow: 6px 6px 0 #000;
   }
   
-  .main-button:hover {
-    background-color: #f3d8b0;
-  }
   
   /* Modal styling */
   .modal {
@@ -121,14 +127,14 @@ body {
   }
   
   .modal-content {
-    background-color: #EAD8B1;
+    background-color: var(--tetriary-color);
     margin: 10% auto;
     padding: 20px;
     border-radius: 20px;
     width: 90%;
     max-width: 600px;
     box-shadow: 6px 6px 0 #000;
-    color: #A52E45;
+    color: var(--secondary-color);
     position: relative;
     animation: slideDown 0.3s ease;
   }
@@ -139,7 +145,7 @@ body {
     right: 20px;
     font-size: 24px;
     font-weight: bold;
-    color: #A52E45;
+    color: var(--secondary-color);
     cursor: pointer;
   }
   
