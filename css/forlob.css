@@ -2,38 +2,40 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #b72c48;
+    background-color: #A52E45;
     color: white;
-    position: relative;
     overflow-x: hidden;
 }
 
 .container {
     text-align: center;
-    padding: 40px 20px;
+    padding: 0px 20px;
 }
 
 header h1 {
     font-size: 28px;
     margin-bottom: 10px;
+    color: #EAD8B1;
 }
 
 .scene {
     margin-bottom: 30px;
     font-size: 18px;
+    color: #EAD8B1;
 }
 
 .video-placeholder {
     background-color: white;
     color: #444;
     width: 80%;
-    max-width: 700px;
-    height: 300px;
+    max-width: 50rem;
+    height: 20rem;
     margin: 0 auto 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    z-index: 1;
 }
 
 .buttons {
@@ -44,8 +46,8 @@ header h1 {
 }
 
 .button {
-    background-color: #ffe0b2;
-    color: #000;
+    background-color: #EAD8B1;
+    color: #A52E45;
     padding: 15px 20px;
     border-radius: 15px;
     text-decoration: none;
@@ -58,41 +60,53 @@ header h1 {
     background-color: #ffd399;
 }
 
-/* Øjne (placeringer som i billedet) */
 .eye {
     position: absolute;
-    width: 70px;
+    width: 10rem;
     height: auto;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .top-left {
-    top: 20px;
-    left: 20px;
+    top: 5rem;
+    left: 10rem;
 }
 
 .top-right {
-    top: 20px;
-    right: 20px;
+    top: 2rem;
+    right: 15rem;
+    width: 8rem;
 }
 
 .bottom-left {
-    bottom: 20px;
-    left: 20px;
+    bottom: 0rem;
+    left: 7rem;
+    width: 15rem;
 }
 
 .bottom-right {
-    bottom: 20px;
-    right: 20px;
+    bottom: 0rem;
+    right: 7rem;
+    width: 15rem;
 }
 
 .left {
     top: 50%;
-    left: 0;
+    left: 1rem;
     transform: translateY(-50%);
 }
 
 .right {
     top: 50%;
-    right: 0;
+    right: 2rem;
     transform: translateY(-50%);
+}
+
+.wavebg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: -10;
 }
