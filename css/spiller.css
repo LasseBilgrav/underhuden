@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+   --primary-color:#2B5278; 
+   --secondary-color:#A52E45;
+   --tetriary-color:#EAD8B1;
+   --primary-font:'Poppins', sans-serif;
+   --secondary-font:'Inter', sans-serif;
+}
+
+
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--secondary-color);
+    color: var(--tetriary-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-family: var(--secondary-font);
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  h2 {
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: -1rem;
+    text-align: center;
+  }
+  
+  input[type="text"], input[type="number"], input[type="file"] {
+    background-color: var(--tetriary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    width: 100%;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: var(--primary-font);
+  }
+
+  input::placeholder {
+    color: var(--secondary-color);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+  
+  .button-link {
+    text-decoration: none;
+    background-color: var(--tetriary-color);
+    color: var(--secondary-color);
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 1;
+  }
+  
+  .button-link:hover {
+    background-color: #f0e5c9;
+  }
+  
+  /* Tilgængelighed – skjul label men behold for skærmlæsere */
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+  }
