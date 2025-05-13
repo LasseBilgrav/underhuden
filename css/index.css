@@ -1,14 +1,20 @@
 *{
     margin: 0;
     padding: 0;
-};
+}
 
 :root{
    --primary-color:#2B5278; 
    --secondary-color:#A52E45;
    --tetriary-color:#EAD8B1;
+   --primary-font:
+}
+
+header{
+    background:var(--primary-color);
 }
 
 .heading{
-    background-color: ;
+    display: flex;
+
 }
