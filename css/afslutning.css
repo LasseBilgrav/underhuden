@@ -9,21 +9,20 @@ body {
     width: 100%;
   }
   
-  .bg-wave {
+  .bg-wave, .bg-wave-bottom {
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 50%;
     z-index: -1;
   }
+  
+  .bg-wave {
+    top: 0;
+  }
+  
   .bg-wave-bottom {
-    position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    z-index: -1;
     transform: rotate(180deg);
   }
   
@@ -48,7 +47,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin-bottom: 50px;
+    padding: 5rem;
   }
   
   .card {
@@ -60,8 +59,8 @@ body {
     color: #A52E45;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
   
   .card h2 {
@@ -79,32 +78,12 @@ body {
     background-color: #A52E45;
     color: white;
     padding: 10px 20px;
-    text-decoration: none;
+    border: none;
     border-radius: 8px;
     font-weight: bold;
-    display: inline-block;
     box-shadow: 4px 4px 0 #000;
+    cursor: pointer;
   }
-
-  .card-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    margin-top: 0;
-    text-align: left;
-    background-color: #fff3dc;
-    padding: 0 15px;
-    border-radius: 10px;
-    color: #A52E45;
-    font-size: 16px;
-  }
-  
-  .card-content.active {
-    max-height: 500px; /* Juster hvis dit indhold er højere */
-    padding: 15px;
-    margin-top: 15px;
-  }
-  
   
   .bottom-buttons {
     display: flex;
@@ -126,5 +105,62 @@ body {
   
   .main-button:hover {
     background-color: #f3d8b0;
+  }
+  
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-content {
+    background-color: #EAD8B1;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 6px 6px 0 #000;
+    color: #A52E45;
+    position: relative;
+    animation: slideDown 0.3s ease;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #A52E45;
+    cursor: pointer;
+  }
+  
+  /* Animation */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   
