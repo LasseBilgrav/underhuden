@@ -60,6 +60,7 @@ h1 {
     padding: 15px 20px;
     border-radius: 15px;
     text-decoration: none;
+    font-weight: bold;
     box-shadow: 5px 5px 0 #000;
     width: 20rem;
     height: 3rem;
