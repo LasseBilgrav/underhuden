@@ -196,3 +196,22 @@ padding-right: 1rem;
   height: auto;
 
 }
+
+/* Styling af kort og parallax */
+.kort-lax{
+    background: var(--secondary-color);
+    height: 50vh;
+}
+
+.circle-bg{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.circle-img{
+    position: absolute;
+    bottom: 0;
+    right: 50;
+    
+}
