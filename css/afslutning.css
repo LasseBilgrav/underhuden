@@ -6,6 +6,7 @@ body {
     color: #EAD8B1;
     position: relative;
     overflow-x: hidden;
+    width: 100%;
   }
   
   .bg-wave {
@@ -74,7 +75,7 @@ body {
     margin-bottom: 15px;
   }
   
-  .button {
+  .fold-ud {
     background-color: #A52E45;
     color: white;
     padding: 10px 20px;
@@ -83,10 +84,6 @@ body {
     font-weight: bold;
     display: inline-block;
     box-shadow: 4px 4px 0 #000;
-  }
-  
-  .button:hover {
-    background-color: #a11e3a;
   }
   
   .bottom-buttons {
