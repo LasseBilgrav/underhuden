@@ -81,19 +81,22 @@ header {
     margin-top: 2rem;
   }
   
-  footer.button-container button {
+  .button-link {
+    font-family: var(--secondary-font);
+    display: inline-block;
     background-color: #EAD8B1;
     color: #A52E45;
     font-weight: bold;
-    border: none;
+    text-decoration: none;
     padding: 1rem 2rem;
     font-size: 2.2rem;
     border-radius: 15px;
     cursor: pointer;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    text-align: center;
   }
   
-  footer.button-container button:hover {
-    background-color: #EAD8B1;
+  .button-link:hover {
+    background-color: #EAD8B1; /* Samme farve i hover for stabilitet */
   }
