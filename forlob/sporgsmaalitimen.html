@@ -42,22 +42,8 @@
         <img src="../images/eyeen.png" class="eye right" alt="Øje">
         <img src="../images/wavebg.png" class="wavebg" alt="">
     </main>
+    
+    <script src="../js/afslutning-fold-ud.js"></script>
 
-    <script>
-        document.querySelectorAll('a[data-badge]').forEach(link => {
-          link.addEventListener('click', () => {
-            const badge = {
-              name: link.dataset.badge,
-              img: link.dataset.img
-            };
-            let badges = JSON.parse(localStorage.getItem("badges")) || [];
-            if (!badges.some(b => b.name === badge.name)) {
-              badges.push(badge);
-              localStorage.setItem("badges", JSON.stringify(badges));
-            }
-          });
-        });
-      </script>
-      
 </body>
 </html>
