@@ -228,3 +228,9 @@ body {
     height: auto;
     margin-bottom: 10px;
   }
+
+  .badge-item {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
