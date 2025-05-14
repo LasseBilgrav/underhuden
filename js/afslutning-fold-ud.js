@@ -17,19 +17,19 @@ const badgeData = {
         text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
     },
     dublevidet: {
-        img: "../images/.png",
+        img: "../images/blev.i.det.png",
         text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
     },
     etvalgafgangen: {
-        img: "../images/responsibility-badge.png",
+        img: "../images/et-valg-af-gangen.png",
         text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
     },
-    uventedmod: {
-        img: "../images/responsibility-badge.png",
+    uventetmod: {
+        img: "../images/uventet-mod.png",
         text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
     },
     dagenkomoggik: {
-        img: "../images/responsibility-badge.png",
+        img: "../images/dagen-gik.png",
         text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
     },
   };
