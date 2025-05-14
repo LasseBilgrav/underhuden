@@ -1,49 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("popup-modal");
-    const popupText = document.getElementById("popup-text");
-    const closeBtn = document.querySelector(".close-btn");
+document.querySelectorAll(".fold-ud").forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const modal = document.getElementById("popup-modal");
+      const popupText = document.getElementById("popup-text");
   
-    const contentMap = {
-      "Refleksion": `
+      const content = [
+        `
         <h2>Refleksion</h2>
-        <p>“Social angst handler ikke om at være genert – men en frygt andre ikke vil kunne lide én.”</p>
-        <p>Ca. 7% oplever social angst i hverdagen. Du er ikke alene.</p>
-      `,
-      "Præsentationer": `
+        <p>"Social angst handler ikke om at være genert – men om en frygt, som andre ikke kan se. Man kan se legende, selv når man ryster indeni."</p>
+        <p>• 75% oplever social angst i hverdagen.<br>
+        • Du har formået – med små skridt – at vise mod i dag.</p>
+        `,
+        `
         <h2>Præsentationer</h2>
+        <p>Valg du tog i dag:</p>
         <ul>
-          <li>Du valgte mod 2 gange.</li>
-          <li>Du deltog i en gruppeøvelse.</li>
-          <li>Du tog ordet i en samtale.</li>
+          <li>3 gange trak du dig tilbage.</li>
+          <li>2 gange prøvede du noget nyt.</li>
+          <li>Du svarede på et spørgsmål i timen.</li>
         </ul>
-      `,
-      "Dine badges": `
+        `,
+        `
         <h2>Dine Badges</h2>
-        <p>Du har opnået 3 badges:</p>
-        <ul>
-          <li>Mod</li>
-          <li>Tryghed</li>
-          <li>Selvværd</li>
-        </ul>
-      `
-    };
+        <div id="badge-list" class="badge-container">
+          <p>Indlæser dine badges...</p>
+        </div>
+        `
+      ];
   
-    document.querySelectorAll(".fold-ud").forEach(button => {
-      button.addEventListener("click", () => {
-        const sectionTitle = button.closest(".card").querySelector("h2").textContent;
-        popupText.innerHTML = contentMap[sectionTitle] || "<p>Ingen data tilgængelig.</p>";
-        modal.style.display = "block";
-      });
-    });
+      popupText.innerHTML = content[index] || "<p>Ingen data tilgængelig.</p>";
   
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+      // Indsæt badges hvis det er det tredje kort
+      if (index === 2) {
+        const savedBadges = JSON.parse(localStorage.getItem("badges")) || [];
+        const badgeList = document.getElementById("badge-list");
   
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
+        if (savedBadges.length === 0) {
+          badgeList.innerHTML = "<p>Du har ikke samlet nogen badges endnu.</p>";
+        } else {
+          badgeList.innerHTML = savedBadges.map(badge => `
+            <div class="badge">
+              <img src="${badge.img}" alt="${badge.name}">
+              <p>${badge.name}</p>
+            </div>
+          `).join("");
+        }
       }
+  
+      modal.classList.add("show");
     });
+  });
+  
+  // Luk modal
+  document.querySelector(".close-btn").addEventListener("click", () => {
+    document.getElementById("popup-modal").classList.remove("show");
   });
   

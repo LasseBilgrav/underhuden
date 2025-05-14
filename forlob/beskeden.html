@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Under huden</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xik4fpi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/forlob.css">
 </head>
 <body>
@@ -40,5 +42,22 @@
         <img src="../images/eyeen.png" class="eye right" alt="Øje">
         <img src="../images/wavebg.png" class="wavebg" alt="bølge i baggrunden">
     </main>
+
+    <script>
+        document.querySelectorAll('a[data-badge]').forEach(link => {
+          link.addEventListener('click', () => {
+            const badge = {
+              name: link.dataset.badge,
+              img: link.dataset.img
+            };
+            let badges = JSON.parse(localStorage.getItem("badges")) || [];
+            if (!badges.some(b => b.name === badge.name)) {
+              badges.push(badge);
+              localStorage.setItem("badges", JSON.stringify(badges));
+            }
+          });
+        });
+      </script>
+      
 </body>
 </html>
