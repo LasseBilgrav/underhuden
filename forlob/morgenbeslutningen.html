@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Under huden</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xik4fpi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/forlob.css">
 </head>
+
+  
+  
 <body>
     <main class="container">
             <h1>Morgenbeslutningen</h1>
@@ -22,7 +27,7 @@
         </section>
 
         <section class="buttons">
-            <a href="../forlob/skolegangen.html" class="button">
+            <a href="../forlob/skolegangen.html" class="button" onclick="tildelBadge('dusagdenoget'); registrerValg('tilbage', { værdi: 'tryghed' })">
                 Du står op og prøver at gå i gang – én ting ad gangen.
             </a>
             <a href="../forlob/skolegangen.html" class="button">
@@ -39,5 +44,7 @@
         <img src="../images/eyeen.png" class="eye right" alt="Øje">
         <img src="../images/wavebg.png" class="wavebg" alt="">
     </main>
+
+    <script src="../js/afslutning-fold-ud.js"></script>
 </body>
 </html>

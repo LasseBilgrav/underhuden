@@ -1,49 +1,109 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("popup-modal");
-    const popupText = document.getElementById("popup-text");
-    const closeBtn = document.querySelector(".close-btn");
+// Badge-definitioner
+const badgeData = {
+    forsteskridt: {
+      img: "images/reflection-badge.png",
+      text: "Første skridt - Du tog en chance i noget, der føltes svært.",
+    },
+    dusagdenoget: {
+      img: "images/presentation-badge.png",
+      text: "Du sagde noget - Et svar. En kommentar. Du deltog.",
+    },
+    dulyttedetildigselv: {
+      img: "images/responsibility-badge.png",
+      text: "Du lyttede til dig selv - Du valgte ro frem for pres.",
+    },
+    tryghedforst: {
+        img: "images/responsibility-badge.png",
+        text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
+    },
+    dublevidet: {
+        img: "images/responsibility-badge.png",
+        text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
+    },
+    etvalgafgangen: {
+        img: "images/responsibility-badge.png",
+        text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
+    },
+    uventedmod: {
+        img: "images/responsibility-badge.png",
+        text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
+    },
+    dagenkomoggik: {
+        img: "images/responsibility-badge.png",
+        text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
+    },
+  };
   
-    const contentMap = {
-      "Refleksion": `
-        <h2>Refleksion</h2>
-        <p>“Social angst handler ikke om at være genert – men en frygt andre ikke vil kunne lide én.”</p>
-        <p>Ca. 7% oplever social angst i hverdagen. Du er ikke alene.</p>
-      `,
-      "Præsentationer": `
-        <h2>Præsentationer</h2>
-        <ul>
-          <li>Du valgte mod 2 gange.</li>
-          <li>Du deltog i en gruppeøvelse.</li>
-          <li>Du tog ordet i en samtale.</li>
-        </ul>
-      `,
-      "Dine badges": `
-        <h2>Dine Badges</h2>
-        <p>Du har opnået 3 badges:</p>
-        <ul>
-          <li>Mod</li>
-          <li>Tryghed</li>
-          <li>Selvværd</li>
-        </ul>
-      `
-    };
+  // Vælg elementer
+  const modal = document.getElementById("popup-modal");
+  const popupText = document.getElementById("popup-text");
+  const closeBtn = document.querySelector(".close-btn");
+  const foldUdButtons = document.querySelectorAll(".fold-ud");
   
-    document.querySelectorAll(".fold-ud").forEach(button => {
-      button.addEventListener("click", () => {
-        const sectionTitle = button.closest(".card").querySelector("h2").textContent;
-        popupText.innerHTML = contentMap[sectionTitle] || "<p>Ingen data tilgængelig.</p>";
-        modal.style.display = "block";
-      });
-    });
+  // Luk pop-up
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
   
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
+  // Klik på "fold ud" knapper
+  foldUdButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      // Vælg hvilken popup der skal vises
+      switch (index) {
+        case 0:
+          showPopup("Refleksion", "Du har reflekteret over dine valg og tanker.");
+          break;
+        case 1:
+          showPopup("Præsentationer", "Du har deltaget aktivt og præsenteret dine synspunkter.");
+          break;
+        case 2:
+          visBadges(); // vis gemte badges
+          break;
       }
     });
   });
+  
+  // Funktion til at vise popup med almindelig tekst
+  function showPopup(title, message) {
+    popupText.innerHTML = `<h2>${title}</h2><p>${message}</p>`;
+    modal.classList.add("show");
+  }
+  
+  // Funktion til at vise badges
+  function visBadges() {
+    const badges = JSON.parse(localStorage.getItem("badges")) || [];
+    if (badges.length === 0) {
+      popupText.innerHTML = `<h2>Dine badges</h2><p>Du har endnu ikke opnået nogle badges.</p>`;
+    } else {
+      let badgeHTML = `<h2>Dine badges</h2><div class="badge-container">`;
+      badges.forEach((badgeKey) => {
+        const badge = badgeData[badgeKey];
+        if (badge) {
+          badgeHTML += `
+            <div class="badge">
+              <img src="${badge.img}" alt="Badge billede">
+              <p>${badge.text}</p>
+            </div>
+          `;
+        }
+      });
+      badgeHTML += `</div>`;
+      popupText.innerHTML = badgeHTML;
+    }
+    modal.classList.add("show");
+  }
+  
+  // Funktion til at gemme badge-valg (bruges i forløbet)
+  function tildelBadge(badgeKey) {
+    const eksisterende = JSON.parse(localStorage.getItem("badges")) || [];
+    if (!eksisterende.includes(badgeKey)) {
+      eksisterende.push(badgeKey);
+      localStorage.setItem("badges", JSON.stringify(eksisterende));
+    }
+  }
+  
+  // Ryd badges ved genstart
+  function genstartHistorien() {
+    localStorage.removeItem("badges");
+  }
   
