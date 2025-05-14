@@ -1,16 +1,36 @@
 // Badge-definitioner
 const badgeData = {
-    refleksion: {
+    forsteskridt: {
       img: "images/reflection-badge.png",
-      text: "Du tog dig tid til at tænke og mærke efter – en vigtig del af personlig udvikling.",
+      text: "Første skridt - Du tog en chance i noget, der føltes svært.",
     },
-    praesentation: {
+    dusagdenoget: {
       img: "images/presentation-badge.png",
-      text: "Du turde stå frem og dele dine tanker – det kræver mod og styrke.",
+      text: "Du sagde noget - Et svar. En kommentar. Du deltog.",
     },
-    ansvar: {
+    dulyttedetildigselv: {
       img: "images/responsibility-badge.png",
-      text: "Du tog ansvar og traf valg, der viste omtanke for dig selv og andre.",
+      text: "Du lyttede til dig selv - Du valgte ro frem for pres.",
+    },
+    tryghedforst: {
+        img: "images/responsibility-badge.png",
+        text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
+    },
+    dublevidet: {
+        img: "images/responsibility-badge.png",
+        text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
+    },
+    etvalgafgangen: {
+        img: "images/responsibility-badge.png",
+        text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
+    },
+    uventedmod: {
+        img: "images/responsibility-badge.png",
+        text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
+    },
+    dagenkomoggik: {
+        img: "images/responsibility-badge.png",
+        text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
     },
   };
   
