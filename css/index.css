@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body h1, h2, h3{
     font-family: var(--secondary-font);
 }
@@ -168,7 +172,7 @@ padding-right: 1rem;
 /* Styling af kort fakta afsnit */
 .fakta-sek{
     background: linear-gradient(180deg, #A52E45 0%, #B65E6F 50.96%, #A07D90 78.37%, #2B5278 100%);
-    height: 14rem;
+    height: 16rem;
     display: grid;
     grid-template-columns: auto auto;
     padding: 3rem;
@@ -200,7 +204,8 @@ padding-right: 1rem;
 }
 
 .grafik-article{
-    width: 80%;
+    padding-top: 3rem;
+    width: 90%;
 }
 
 .grafik-article h2{
@@ -214,7 +219,8 @@ padding-right: 1rem;
 
 
 .infographic-sek img{
-    width: 70%;
+    width: 100%;
+    border-radius: 20px;
 }
 
 
@@ -267,10 +273,70 @@ padding-right: 1rem;
     transform: translateY(-100px);
 }
 
+/* styling af kort overlay */
+.card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    perspective: 1000px;
+}
+
+.card-popup {
+    background: var(--secondary-color);
+    color: var(--tetriary-color);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid black;
+    width: 400px;
+    height: 500px;   
+    text-align: center;
+    transform: scale(0.8) rotateY(-90deg); 
+    transform-style: preserve-3d; 
+    animation: popupIn 0.6s forwards;
+}
+
+@keyframes popupIn {
+    to {
+      transform: scale(1) rotateY(0deg);
+    }
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--tetriary-color);
+    font-size: 2rem;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+#card-text p {
+    font-size: 1.3rem; 
+    line-height: 1.5; 
+    margin: 0.5rem 0; 
+    padding: 2rem;
+}
+ 
+.card-title {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: var(--tetriary-color);
+}
+
 .cards img{
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.80));
 }
 
+/* styling af cirkel billede sektion */
 .circle-bg{
     display: flex;
     justify-content: center;
@@ -375,25 +441,8 @@ padding-right: 1rem;
 
 /* styling af back to top */
 .btt{
-    /* color: var(--secondary-color);
-    background: var(--tetriary-color);
-    border: none;
-    padding: 2rem;
-    font-family: var(--primary-font);
-    font-weight: 600;
-    height: 90px;
-    width: 90px;
-    right: 3rem;
-    bottom: 3.5rem;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5); */
 
     color: var(--secondary-color);
-    background: var(--tetriary-color);
     border: none;
     padding: 0;
     font-family: var(--primary-font);
@@ -402,8 +451,8 @@ padding-right: 1rem;
     width: 90px;
     right: 3rem;
     bottom: 3.5rem;
-    position: fixed; /* Use fixed to stay in place while scrolling */
-    display: flex;
+    position: fixed; 
+    display: none;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
@@ -424,3 +473,23 @@ padding-right: 1rem;
     align-content: center;
     display: block;
 }
+
+/* Animation til knap */
+@keyframes clickPulse {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.9);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .btt.clicked {
+    animation: clickPulse 0.4s ease;
+  }

@@ -45,7 +45,7 @@
         </section>
 
         <section class="infographic-sek">
-            <img src="/images/infographic.png" alt="infografik">
+            <img src="/images/infografik-fikset.png" alt="infografik">
             <article class="grafik-article">
                 <h2>Hvad er social angst?</h2>
                 <p>
@@ -65,20 +65,30 @@
 
         <section class="kort-lax">
             <aside class="cards">
-                <img class="card1" src="/images/kort.png" alt="kort">
-                <img class="card2" src="/images/kort.png" alt="kort">
-                <img class="card3" src="/images/kort.png" alt="kort">
+                <img class="card1" src="/images/kort.png" alt="kort" data-title="Sidder alene i frokostpausen" data-text="Det kan føles ensomt, men det er også helt okay at have tid for sig selv.|Tip: Brug frokosten til at gøre noget, du kan lide – læs en bog, hør musik eller bare tag en pause.">
+                <img class="card2" src="/images/kort.png" alt="kort" data-title="Undgår øjenkontakt" data-text="Det er helt normalt at føle sig urolig ved at møde andres blik.|Tip: Prøv at kigge kort på øjnene, og så se lidt væk igen. Det kan hjælpe dig med at føle dig mere tryg over tid.">
+                <img class="card3" src="/images/kort.png" alt="kort" data-title="Føler mig usikker i sociale situationer" data-text="Det er helt almindeligt at føle sig nervøs eller usikker i nye eller udfordrende sociale situationer.|
+Tip: Prøv at fokusere på din vejrtrækning – tag dybe, rolige ind- og udåndinger. Det kan hjælpe dig med at falde til ro, som anbefalet af Sundhedsstyrelsen.">
             </aside>
+
+            <aside class="card-overlay" id="overlay">
+                <aside id="card-text" class="card-popup">
+                  <button class="close-btn" aria-label="Luk kortet">&times;</button>
+                    <h2 id="card-title"></h2>
+                </aside>
+              </aside>
+
             <aside class="circle-bg">
                 <h3>Træk et oplevelseskort</h3>
                 <p>Få et hurtigt tip eller en lille øvelse, der hjælper dig med at stoppe op, mærke din krop og skabe et øjebliks ro.</p>
-                <a href="/forlob/intro.html">
+                <a id="forlob-btn" href="/forlob/intro.html">
                     <img src="/images/pcircle.png" alt="play circle">Under Huden
                   </a>
             </aside>
+
             <img class="circle-img" src="/images/half-circle.png" alt="halv-cirkel">
             <button class="btt" onclick="topFunction()" id="myBtn" title="Go to top">
-                <span class="material-symbols-outlined">
+                <span id="progess-value" class="material-symbols-outlined">
                     arrow_upward
                     </span>
             </button>
@@ -86,5 +96,7 @@
     </main>
 
 <script src="js/parallax.js"></script>
+<script src="/js/back-to-top.js"></script>
+<script src="/js/kort.js"></script>
 </body>
 </html>
