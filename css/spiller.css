@@ -11,13 +11,19 @@
    --secondary-font:'Inter', sans-serif;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
 
 
-body {
+  body {
+    position: relative;
     font-family: var(--primary-font);
     background-color: var(--secondary-color);
     color: var(--tetriary-color);
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +39,7 @@ body {
     align-items: center;
     gap: 2rem;
     padding: 2rem 1rem;
+    overflow-x: hidden;
   }
 
   h1 {
@@ -97,6 +104,57 @@ body {
     width: 100%;
     gap: 2rem;
   }
+
+  .eye {
+    position: absolute;
+    width: 10rem;
+    height: auto;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.top-left {
+    top: 5rem;
+    left: 10rem;
+}
+
+.top-right {
+    top: 2rem;
+    right: 15rem;
+    width: 8rem;
+}
+
+.bottom-left {
+    bottom: 2rem;
+    left: 7rem;
+    width: 15rem;
+}
+
+.bottom-right {
+    bottom: 4rem;
+    right: 7rem;
+    width: 15rem;
+}
+
+.left {
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.right {
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.wavebg {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: -10;
+}
+
   
   .button-link {
     text-decoration: none;
