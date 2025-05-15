@@ -2,15 +2,22 @@
 
 const brainImg = document.querySelector('.kort-head img');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            brainImg.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.5
-});
 
-observer.observe(brainImg);
+window.addEventListener("scroll", () => {
+
+  const value = window.scrollY;
+
+
+   let newRight = -1000 + value * 0.45;
+
+ 
+   newRight = Math.min(newRight, -125);
+ 
+ 
+   brainImg.style.right = `${newRight}px`;
+ 
+  
+   const scaleValue = Math.min(1, 0.5 + value * 0.002);
+   brainImg.style.transform = `scale(${scaleValue})`;
+   brainImg.style.opacity = scaleValue;
+ });
