@@ -13,63 +13,62 @@ const badgeData = {
       text: "Du lyttede til dig selv - Du valgte ro frem for pres.",
     },
     tryghedforst: {
-        img: "../images/tryghed-foerst.png",
-        text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
+      img: "../images/tryghed-foerst.png",
+      text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
     },
     dublevidet: {
-        img: "../images/blev.i.det.png",
-        text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
+      img: "../images/blev.i.det.png",
+      text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
     },
     etvalgafgangen: {
-        img: "../images/et-valg-af-gangen.png",
-        text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
+      img: "../images/et-valg-af-gangen.png",
+      text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
     },
     uventetmod: {
-        img: "../images/uventet-mod.png",
-        text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
+      img: "../images/uventet-mod.png",
+      text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
     },
     dagenkomoggik: {
-        img: "../images/dagen-gik.png",
-        text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
+      img: "../images/dagen-gik.png",
+      text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
     },
   };
   
-  // Vælg elementer
+  // Elementer
   const modal = document.getElementById("popup-modal");
   const popupText = document.getElementById("popup-text");
   const closeBtn = document.querySelector(".close-btn");
   const foldUdButtons = document.querySelectorAll(".fold-ud");
   
-  // Luk pop-up
+  // Luk popup
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("show");
   });
   
-  // Klik på "fold ud" knapper
+  // Fold-ud knapper
   foldUdButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      // Vælg hvilken popup der skal vises
       switch (index) {
         case 0:
           showPopup("Refleksion", "Du har reflekteret over dine valg og tanker.");
           break;
         case 1:
-          showPopup("Præsentationer", "Du har deltaget aktivt og præsenteret dine synspunkter.");
+          visPraesentation();
           break;
         case 2:
-          visBadges(); // vis gemte badges
+          visBadges();
           break;
       }
     });
   });
   
-  // Funktion til at vise popup med almindelig tekst
+  // Almindelig tekst-popup
   function showPopup(title, message) {
     popupText.innerHTML = `<h2>${title}</h2><p>${message}</p>`;
     modal.classList.add("show");
   }
   
-  // Funktion til at vise badges
+  // Badges popup
   function visBadges() {
     const badges = JSON.parse(localStorage.getItem("badges")) || [];
     if (badges.length === 0) {
@@ -93,17 +92,60 @@ const badgeData = {
     modal.classList.add("show");
   }
   
-  // Funktion til at gemme badge-valg (bruges i forløbet)
+  // Ny: Præsentation popup
+  function visPraesentation() {
+    const data = JSON.parse(localStorage.getItem("valgStatus")) || {
+      trakSigTilbage: 0,
+      provedeNogetNyt: 0
+    };
+  
+    const indhold = `
+      <h2>Præsentation</h2>
+      <p><strong>Valg du tog i dag:</strong><br>
+        ${data.trakSigTilbage} gange trak du dig tilbage.<br>
+        ${data.provedeNogetNyt} gange prøvede du noget nyt.
+      </p>
+      <p><strong>Dine stærkeste øjeblikke:</strong><br>
+        Du svarede på et spørgsmål i timen.<br>
+        Du delte noget i gruppechatten!
+      </p>
+    `;
+  
+    popupText.innerHTML = indhold;
+    modal.classList.add("show");
+  }
+  
+  // Badge-funktion + tæller valg
   function tildelBadge(badgeKey) {
     const eksisterende = JSON.parse(localStorage.getItem("badges")) || [];
     if (!eksisterende.includes(badgeKey)) {
       eksisterende.push(badgeKey);
       localStorage.setItem("badges", JSON.stringify(eksisterende));
     }
+  
+    // Tæl valg til præsentation
+    let valgStatus = JSON.parse(localStorage.getItem("valgStatus")) || {
+      trakSigTilbage: 0,
+      provedeNogetNyt: 0
+    };
+  
+    // Klassificering
+    if (badgeKey === "dulyttedetildigselv" || badgeKey === "tryghedforst") {
+      valgStatus.trakSigTilbage++;
+    } else if (
+      badgeKey === "dusagdenoget" ||
+      badgeKey === "forsteskridt" ||
+      badgeKey === "uventetmod"
+    ) {
+      valgStatus.provedeNogetNyt++;
+    }
+  
+    localStorage.setItem("valgStatus", JSON.stringify(valgStatus));
   }
   
-  // Ryd badges ved genstart
+  // Genstart historien
   function genstartHistorien() {
     localStorage.removeItem("badges");
+    localStorage.removeItem("valgStatus");
   }
   
