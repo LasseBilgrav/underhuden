@@ -135,7 +135,9 @@ const badgeData = {
     } else if (
       badgeKey === "dusagdenoget" ||
       badgeKey === "forsteskridt" ||
-      badgeKey === "uventetmod"
+      badgeKey === "uventetmod" ||
+      badgeKey === "etvalgafgangen" ||
+      badgeKey === "dublevidet"
     ) {
       valgStatus.provedeNogetNyt++;
     }
