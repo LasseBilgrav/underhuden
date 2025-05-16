@@ -1,153 +1,174 @@
 // Badge-definitioner
 const badgeData = {
-    forsteskridt: {
-      img: "../images/foerste-skridt.png",
-      text: "Første skridt - Du tog en chance i noget, der føltes svært.",
-    },
-    dusagdenoget: {
-      img: "../images/sagde-noget.png",
-      text: "Du sagde noget - Et svar. En kommentar. Du deltog.",
-    },
-    dulyttedetildigselv: {
-      img: "../images/lyttede-selv.png",
-      text: "Du lyttede til dig selv - Du valgte ro frem for pres.",
-    },
-    tryghedforst: {
-      img: "../images/tryghed-foerst.png",
-      text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
-    },
-    dublevidet: {
-      img: "../images/blev.i.det.png",
-      text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
-    },
-    etvalgafgangen: {
-      img: "../images/et-valg-af-gangen.png",
-      text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
-    },
-    uventetmod: {
-      img: "../images/uventet-mod.png",
-      text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
-    },
-    dagenkomoggik: {
-      img: "../images/dagen-gik.png",
-      text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
-    },
-  };
-  
-  // Elementer
-  const modal = document.getElementById("popup-modal");
-  const popupText = document.getElementById("popup-text");
-  const closeBtn = document.querySelector(".close-btn");
-  const foldUdButtons = document.querySelectorAll(".fold-ud");
-  
-  // Luk popup
-  closeBtn.addEventListener("click", () => {
+  forsteskridt: {
+    img: "../images/foerste-skridt.png",
+    text: "Første skridt - Du tog en chance i noget, der føltes svært.",
+  },
+  dusagdenoget: {
+    img: "../images/sagde-noget.png",
+    text: "Du sagde noget - Et svar. En kommentar. Du deltog.",
+  },
+  dulyttedetildigselv: {
+    img: "../images/lyttede-selv.png",
+    text: "Du lyttede til dig selv - Du valgte ro frem for pres.",
+  },
+  tryghedforst: {
+    img: "../images/tryghed-foerst.png",
+    text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
+  },
+  dublevidet: {
+    img: "../images/blev.i.det.png",
+    text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
+  },
+  etvalgafgangen: {
+    img: "../images/et-valg-af-gangen.png",
+    text: "Et valg ad gangen - Du lod ikke én svær situation styre hele dagen",
+  },
+  uventetmod: {
+    img: "../images/uventet-mod.png",
+    text: "Uventet mod - Du overraskede dig selv med en handling du ikke havde planlagt.",
+  },
+  dagenkomoggik: {
+    img: "../images/dagen-gik.png",
+    text: "Dagen kom og gik - Du kom igennem. Det i sig selv er værd at fejre.",
+  },
+};
+
+// Elementer
+const modal = document.getElementById("popup-modal");
+const popupText = document.getElementById("popup-text");
+const closeBtn = document.querySelector(".close-btn");
+const foldUdButtons = document.querySelectorAll(".fold-ud");
+
+// Luk popup
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
+
+// Luk popup ved klik udenfor indholdet
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
     modal.classList.remove("show");
+  }
+});
+
+// Fold-ud knapper
+foldUdButtons.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    switch (index) {
+      case 0:
+        showPopup("Refleksion", "Du har reflekteret over dine valg og tanker.");
+        break;
+      case 1:
+        visPraesentation();
+        break;
+      case 2:
+        visBadges();
+        break;
+    }
   });
-  
-  // Fold-ud knapper
-  foldUdButtons.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      switch (index) {
-        case 0:
-          showPopup("Refleksion", "Du har reflekteret over dine valg og tanker.");
-          break;
-        case 1:
-          visPraesentation();
-          break;
-        case 2:
-          visBadges();
-          break;
+});
+
+// Almindelig tekst-popup
+function showPopup(title, message) {
+  popupText.innerHTML = `<h2>${title}</h2><p>${message}</p>`;
+  modal.classList.add("show");
+}
+
+// Badges popup
+function visBadges() {
+  const badges = JSON.parse(localStorage.getItem("badges")) || [];
+  if (badges.length === 0) {
+    popupText.innerHTML = `<h2>Dine badges</h2><p>Du har endnu ikke opnået nogle badges.</p>`;
+  } else {
+    let badgeHTML = `<h2>Dine badges</h2><div class="badge-container">`;
+    badges.forEach((badgeKey) => {
+      const badge = badgeData[badgeKey];
+      if (badge) {
+        badgeHTML += `
+          <div class="badge">
+            <img src="${badge.img}" alt="Badge billede">
+            <p>${badge.text}</p>
+          </div>
+        `;
       }
     });
-  });
-  
-  // Almindelig tekst-popup
-  function showPopup(title, message) {
-    popupText.innerHTML = `<h2>${title}</h2><p>${message}</p>`;
-    modal.classList.add("show");
+    badgeHTML += `</div>`;
+    popupText.innerHTML = badgeHTML;
   }
-  
-  // Badges popup
-  function visBadges() {
-    const badges = JSON.parse(localStorage.getItem("badges")) || [];
-    if (badges.length === 0) {
-      popupText.innerHTML = `<h2>Dine badges</h2><p>Du har endnu ikke opnået nogle badges.</p>`;
-    } else {
-      let badgeHTML = `<h2>Dine badges</h2><div class="badge-container">`;
-      badges.forEach((badgeKey) => {
-        const badge = badgeData[badgeKey];
-        if (badge) {
-          badgeHTML += `
-            <div class="badge">
-              <img src="${badge.img}" alt="Badge billede">
-              <p>${badge.text}</p>
-            </div>
-          `;
-        }
-      });
-      badgeHTML += `</div>`;
-      popupText.innerHTML = badgeHTML;
-    }
-    modal.classList.add("show");
+  modal.classList.add("show");
+}
+
+// Find stærkeste øjeblikke
+function findStaerkesteOejeblikke() {
+  const badges = JSON.parse(localStorage.getItem("badges")) || [];
+  const staerkeOejeblikkeTekster = badges
+    .map(badgeKey => badgeData[badgeKey]?.text)
+    .filter(Boolean);
+
+  for (let i = staerkeOejeblikkeTekster.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [staerkeOejeblikkeTekster[i], staerkeOejeblikkeTekster[j]] = [staerkeOejeblikkeTekster[j], staerkeOejeblikkeTekster[i]];
   }
-  
-  // Ny: Præsentation popup
-  function visPraesentation() {
-    const data = JSON.parse(localStorage.getItem("valgStatus")) || {
-      trakSigTilbage: 0,
-      provedeNogetNyt: 0
-    };
-  
-    const indhold = `
-      <h2>Præsentation</h2>
-      <p><strong>Valg du tog i dag:</strong><br>
-        ${data.trakSigTilbage} gange trak du dig tilbage.<br>
-        ${data.provedeNogetNyt} gange prøvede du noget nyt.
-      </p>
-      <p><strong>Dine stærkeste øjeblikke:</strong><br>
-        Du svarede på et spørgsmål i timen.<br>
-        Du delte noget i gruppechatten!
-      </p>
-    `;
-  
-    popupText.innerHTML = indhold;
-    modal.classList.add("show");
+
+  return staerkeOejeblikkeTekster.slice(0, 2);
+}
+
+// Præsentation popup
+function visPraesentation() {
+  const data = JSON.parse(localStorage.getItem("valgStatus")) || {
+    trakSigTilbage: 0,
+    provedeNogetNyt: 0
+  };
+
+  const staerkeOejeblikke = findStaerkesteOejeblikke();
+  const staerkeHTML = staerkeOejeblikke.length > 0
+    ? `<p><strong>Dine stærkeste øjeblikke:</strong><br>${staerkeOejeblikke.join("<br>")}</p>`
+    : `<p><strong>Dine stærkeste øjeblikke:</strong><br>Ingen registreret endnu.</p>`;
+
+  const indhold = `
+    <h2>Præsentation</h2>
+    <p><strong>Valg du tog i dag:</strong><br>
+      ${data.trakSigTilbage} gange trak du dig tilbage.<br>
+      ${data.provedeNogetNyt} gange prøvede du noget nyt.
+    </p>
+    ${staerkeHTML}
+  `;
+
+  popupText.innerHTML = indhold;
+  modal.classList.add("show");
+}
+
+// Badge-funktion + tæller valg
+function tildelBadge(badgeKey) {
+  const eksisterende = JSON.parse(localStorage.getItem("badges")) || [];
+  if (!eksisterende.includes(badgeKey)) {
+    eksisterende.push(badgeKey);
+    localStorage.setItem("badges", JSON.stringify(eksisterende));
   }
-  
-  // Badge-funktion + tæller valg
-  function tildelBadge(badgeKey) {
-    const eksisterende = JSON.parse(localStorage.getItem("badges")) || [];
-    if (!eksisterende.includes(badgeKey)) {
-      eksisterende.push(badgeKey);
-      localStorage.setItem("badges", JSON.stringify(eksisterende));
-    }
-  
-    // Tæl valg til præsentation
-    let valgStatus = JSON.parse(localStorage.getItem("valgStatus")) || {
-      trakSigTilbage: 0,
-      provedeNogetNyt: 0
-    };
-  
-    // Klassificering
-    if (badgeKey === "dulyttedetildigselv" || badgeKey === "tryghedforst") {
-      valgStatus.trakSigTilbage++;
-    } else if (
-      badgeKey === "dusagdenoget" ||
-      badgeKey === "forsteskridt" ||
-      badgeKey === "uventetmod" ||
-      badgeKey === "etvalgafgangen" ||
-      badgeKey === "dublevidet"
-    ) {
-      valgStatus.provedeNogetNyt++;
-    }
-  
-    localStorage.setItem("valgStatus", JSON.stringify(valgStatus));
+
+  let valgStatus = JSON.parse(localStorage.getItem("valgStatus")) || {
+    trakSigTilbage: 0,
+    provedeNogetNyt: 0
+  };
+
+  if (badgeKey === "dulyttedetildigselv" || badgeKey === "tryghedforst") {
+    valgStatus.trakSigTilbage++;
+  } else if (
+    badgeKey === "dusagdenoget" ||
+    badgeKey === "forsteskridt" ||
+    badgeKey === "uventetmod" ||
+    badgeKey === "etvalgafgangen" ||
+    badgeKey === "dublevidet"
+  ) {
+    valgStatus.provedeNogetNyt++;
   }
-  
-  // Genstart historien
-  function genstartHistorien() {
-    localStorage.removeItem("badges");
-    localStorage.removeItem("valgStatus");
-  }
-  
+
+  localStorage.setItem("valgStatus", JSON.stringify(valgStatus));
+}
+
+// Genstart historien
+function genstartHistorien() {
+  localStorage.removeItem("badges");
+  localStorage.removeItem("valgStatus");
+}
