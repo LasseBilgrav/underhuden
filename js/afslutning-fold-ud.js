@@ -57,8 +57,24 @@ foldUdButtons.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     switch (index) {
       case 0:
-        showPopup("Refleksion", "Du har reflekteret over dine valg og tanker.");
-        break;
+        popupText.innerHTML = `
+          <h2 style="color: var(--secondary-color); font-family: var(--secondary-font); font-size: 24px;">Refleksion</h2>
+          <p style="font-style: italic; margin: 1em 0; font-family: var(--primary-font); font-size: 18px;">
+            “Social angst handler ikke om at være genert – men om at frygte andres blik. 
+            Man kan føle sig forkert, selv når ingen siger noget. Men du er ikke alene. Og det er muligt at øve sig.”
+          </p>
+          <ul style="list-style: disc; margin-left: 2em; color: var(--secondary-color); font-family: var(--primary-font); font-size: 16px;">
+            <li>Ca. 7% oplever social angst i hverdagen</li>
+            <li>Den kan trænes – med små skridt</li>
+            <li>At tale med nogen hjælper</li>
+          </ul>
+          <p style="margin-top: 2em; font-family: var(--primary-font); font-size: 18px;">
+            Social angst er mere end blot nervøsitet eller generthed i sociale situationer. 
+            Det er en overvældende frygt, der kan lamme dig og forhindre dig i at leve et fuldt og meningsfuldt liv.
+          </p>
+        `;
+        modal.classList.add("show");
+        break;      
       case 1:
         visPraesentation();
         break;
