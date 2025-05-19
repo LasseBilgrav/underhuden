@@ -1,3 +1,5 @@
+"use strict";
+
 // Badge-definitioner
 const badgeData = {
   forsteskridt: {
@@ -17,7 +19,7 @@ const badgeData = {
     text: "Tryghed først - Du mærkede dine grænser og respekterede dem.",
   },
   dublevidet: {
-    img: "../images/blev.i.det.png",
+    img: "../images/blev-i-det.png",
     text: "Du blev i det - Du trak dig ikke – du stod det igennem, selv med uro.",
   },
   etvalgafgangen: {
