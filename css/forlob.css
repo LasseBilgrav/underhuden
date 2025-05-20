@@ -20,6 +20,17 @@ body {
     padding: 0px 20px;
 }
 
+a#forside-knap {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background: var(--tetriary-color);
+    color: var(--secondary-color);
+    border-radius: 2rem;
+    width: 5rem;
+    text-decoration: none;
+}
+
 h1 {
     font-size: 28px;
     font-family: var(--primary-font);
