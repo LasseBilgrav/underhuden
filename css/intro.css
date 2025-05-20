@@ -64,6 +64,7 @@ body {
     width: 100%;
     max-width: 20rem;
     border-radius: 20px;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.80));
   }
   
   /* Artikel med tekst */
@@ -87,11 +88,11 @@ body {
     font-size: 2.2rem;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.80));
     transition: background-color 0.3s ease;
     text-align: center;
   }
   
   .button-link:hover {
-    background-color: #EAD8B1; /* Samme farve i hover for stabilitet */
+    background-color: #EAD8B1;
   }
