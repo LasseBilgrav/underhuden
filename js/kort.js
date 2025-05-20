@@ -30,3 +30,9 @@ document.querySelectorAll('.cards img').forEach(card => {
   document.querySelector('.close-btn').addEventListener('click', () => {
     document.getElementById('overlay').style.display = 'none';
   });
+
+  document.getElementById('overlay').addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+      event.currentTarget.style.display = 'none';
+    }
+  });
