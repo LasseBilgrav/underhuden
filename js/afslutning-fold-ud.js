@@ -87,12 +87,6 @@ foldUdButtons.forEach((btn, index) => {
   });
 });
 
-// Almindelig tekst-popup
-function showPopup(title, message) {
-  popupText.innerHTML = `<h2>${title}</h2><p>${message}</p>`;
-  modal.classList.add("show");
-}
-
 // Badges popup
 function visBadges() {
   const badges = JSON.parse(localStorage.getItem("badges")) || [];
