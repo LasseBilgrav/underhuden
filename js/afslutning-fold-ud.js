@@ -111,21 +111,6 @@ function visBadges() {
   modal.classList.add("show");
 }
 
-// Find stærkeste øjeblikke
-function findStaerkesteOejeblikke() {
-  const badges = JSON.parse(localStorage.getItem("badges")) || [];
-  const staerkeOejeblikkeTekster = badges
-    .map(badgeKey => badgeData[badgeKey]?.text)
-    .filter(Boolean);
-
-  for (let i = staerkeOejeblikkeTekster.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [staerkeOejeblikkeTekster[i], staerkeOejeblikkeTekster[j]] = [staerkeOejeblikkeTekster[j], staerkeOejeblikkeTekster[i]];
-  }
-
-  return staerkeOejeblikkeTekster.slice(0, 2);
-}
-
 // Præsentation popup
 function visPraesentation() {
   const data = JSON.parse(localStorage.getItem("valgStatus")) || {
@@ -150,6 +135,16 @@ function visPraesentation() {
   popupText.innerHTML = indhold;
   modal.classList.add("show");
 }
+
+
+
+
+
+
+
+
+
+
 
 // Badge-funktion + tæller valg
 function tildelBadge(badgeKey) {
@@ -177,6 +172,21 @@ function tildelBadge(badgeKey) {
   }
 
   localStorage.setItem("valgStatus", JSON.stringify(valgStatus));
+}
+
+// Find stærkeste øjeblikke
+function findStaerkesteOejeblikke() {
+  const badges = JSON.parse(localStorage.getItem("badges")) || [];
+  const staerkeOejeblikkeTekster = badges
+    .map(badgeKey => badgeData[badgeKey]?.text)
+    .filter(Boolean);
+
+  for (let i = staerkeOejeblikkeTekster.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [staerkeOejeblikkeTekster[i], staerkeOejeblikkeTekster[j]] = [staerkeOejeblikkeTekster[j], staerkeOejeblikkeTekster[i]];
+  }
+
+  return staerkeOejeblikkeTekster.slice(0, 2);
 }
 
 // Genstart historien
